@@ -3,6 +3,7 @@ import NumRow from './numRow/NumRow'
 import { genNumMatrix, calcAvgNums, genNumRow, calcRowSum } from '../../numMatrix'
 import AvgRow from './avgRow/AvgRow'
 import Button from '../button/Button'
+import Field from '../field/Field'
 
 const DEFAULT_ROWS = 5,  DEFAULT_COLS = 7,  DEFAULT_CLOSEST = 4
 
@@ -11,7 +12,7 @@ export class Table extends Component {
   state = {
     ...genNumMatrix(DEFAULT_ROWS, DEFAULT_COLS),
     rows: {value: DEFAULT_ROWS},
-    cols: {value: DEFAULT_COLS},
+    columns: {value: DEFAULT_COLS},
     closest: {value: DEFAULT_CLOSEST},
   }
 
@@ -43,18 +44,9 @@ export class Table extends Component {
     return (
       <table border="1">
         <caption>
-          <label>rows:
-            <input type="number" value={this.state.rows.value}
-              onChange={ e => this.handleInput('rows', e) }></input>
-          </label>
-          <label>columns:
-            <input type="number" value={this.state.cols.value}
-              onChange={ e => this.handleInput('cols', e) }></input>
-          </label>
-          <label>closest:
-            <input type="number" value={this.state.closest.value}
-              onChange={ e => this.handleInput('closest', e) }></input>
-          </label>
+          {['rows', 'columns', 'closest'].map(label =>
+            <Field label={label} value={this.state[label].value}
+              handler={ e => this.handleInput(label, e) }/>)}
           <Button label="generate"/>
         </caption>
         <tbody>

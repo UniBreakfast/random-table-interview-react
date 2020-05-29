@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({label, className}) {
+function Button({label, className, handler}) {
   return (
-    <button className={className || ''}>{label}</button>
+    <button className={className || ''} onClick={handler}>{label}</button>
   )
 }
 

@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import NumRow from './numRow/NumRow'
 import { genNumMatrix, calcAvgNums, genNumRow, calcRowSum } from '../../numMatrix'
-import AvgRow from './avgRow/AvgRow';
-import Button from '../button/Button';
+import AvgRow from './avgRow/AvgRow'
+import Button from '../button/Button'
+
+const DEFAULT_ROWS = 5,  DEFAULT_COLS = 7,  DEFAULT_CLOSEST = 4
 
 export class Table extends Component {
 
-  state = genNumMatrix(5, 7)
+  state = {
+    ...genNumMatrix(DEFAULT_ROWS, DEFAULT_COLS),
+    rows: {value: DEFAULT_ROWS},
+    cols: {value: DEFAULT_COLS},
+    closest: {value: DEFAULT_CLOSEST},
+  }
 
   removeRow(index) {
     this.setState(prevState => {
@@ -28,12 +35,26 @@ export class Table extends Component {
     })
   }
 
+  handleInput(label, event) {
+    this.setState({[label]: {value: +event.target.value}})
+  }
+
   render() {
     return (
       <table border="1">
         <caption>
-          <label>Input:</label>
-          <input></input>
+          <label>rows:
+            <input type="number" value={this.state.rows.value}
+              onChange={ e => this.handleInput('rows', e) }></input>
+          </label>
+          <label>columns:
+            <input type="number" value={this.state.cols.value}
+              onChange={ e => this.handleInput('cols', e) }></input>
+          </label>
+          <label>closest:
+            <input type="number" value={this.state.closest.value}
+              onChange={ e => this.handleInput('closest', e) }></input>
+          </label>
           <Button label="generate"/>
         </caption>
         <tbody>

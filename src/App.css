@@ -8,3 +8,8 @@ body {
 .App {
   text-align: center;
 }
+
+input {
+  width: 48px;
+  margin: 0 6px 0 2px;
+}

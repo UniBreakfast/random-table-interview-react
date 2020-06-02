@@ -16,6 +16,10 @@ export class Table extends Component {
     closest: {value: DEFAULT_CLOSEST},
   }
 
+  generate() {
+    this.setState(genNumMatrix(this.state.rows.value, this.state.columns.value))
+  }
+
   removeRow(index) {
     this.setState(prevState => {
       const numRows = prevState.numRows.filter((_, i)=> i!==index),
@@ -44,10 +48,10 @@ export class Table extends Component {
     return (
       <table border="1">
         <caption>
-          {['rows', 'columns', 'closest'].map(label =>
-            <Field label={label} value={this.state[label].value}
+          {['rows', 'columns', 'closest'].map((label, i) =>
+            <Field key={i} label={label} value={this.state[label].value}
               handler={ e => this.handleInput(label, e) }/>)}
-          <Button label="generate"/>
+          <Button label="generate" handler={ ()=> this.generate() }/>
         </caption>
         <tbody>
           {this.state.numRows.map((row, i) => <NumRow key={i} nums={row}

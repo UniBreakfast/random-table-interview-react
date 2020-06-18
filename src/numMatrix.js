@@ -8,7 +8,13 @@ export function genNumMatrix(rows, cols) {
   numRows.forEach((row, i) => row.forEach(num =>
     num.portion = num.Amount / sums[i] * 100 | 0))
 
+  numRows.forEach((row, i) => calcPortions([row, sums[i]]))
+
   return {numRows, avgNums, sums, nextId: counter.i}
+}
+
+export function calcPortions([row, sum]) {
+  row.forEach(num => num.portion = num.Amount / sum * 100 | 0)
 }
 
 export function calcAvgNums(numRows) {

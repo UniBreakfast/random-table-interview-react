@@ -1,0 +1,39 @@
+.num {
+  position: relative;
+}
+
+.activeRow .num {
+  color: transparent;
+}
+
+.activeRow .num::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--portion);
+  background-color: darkkhaki;
+}
+
+.activeRow .num::after {
+  content: attr(data-portion);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 0%;
+  color: black;
+}
+
+.lit {
+  background: red;
+}
+
+.hilit {
+  background: pink;
+}

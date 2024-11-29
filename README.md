@@ -1,3 +1,5 @@
+# [random-table-interview-react](https://github.com/UniBreakfast/random-table-interview-react)
+
 ## Тестовое задание
 
 Задание Frontend на работу с объектами
@@ -26,6 +28,16 @@
 ### Динамика строк
 Дать возможность удалить строку с таблицы, при этом должны поменяться средние значения по каждому столбику
 Дать возможность добавить строку, фактически M+1. При этом строка заполняется по всем правилам таблицы.
+
+![image](https://github.com/user-attachments/assets/ac0a2f35-efa8-4fe3-91b0-60240e7fe2cd)
+
+![image](https://github.com/user-attachments/assets/81270e97-90ac-45b7-9a4c-9e9f3425f9bd)
+
+![image](https://github.com/user-attachments/assets/c763a891-33f3-4e57-b218-7c609aa1c823)
+
+![image](https://github.com/user-attachments/assets/c28c9286-13b9-4c89-8ca4-8a00974abbc7)
+
+![image](https://github.com/user-attachments/assets/eef1f9e8-1d78-4e05-bff7-da14d4781916)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
